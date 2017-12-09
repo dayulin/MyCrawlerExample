@@ -13,6 +13,7 @@ public class HighwayStaticInfo {
 	public static void main(String[] args) {
 		
 		// 遠端資料路徑
+		//gzip 只會壓縮一個檔案
 		String uri = "gz:http://tisvcloud.freeway.gov.tw/roadlevel_info.xml.gz";
 		//String uri = "gz:http://tisvcloud.freeway.gov.tw/roadlevel_value5.xml.gz";
 //		System.out.println(

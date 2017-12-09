@@ -20,7 +20,7 @@ public class RealPrice {
 		
 		String uri = "zip:http://plvr.land.moi.gov.tw"
 				+ "/Download?type=zip&fileName=lvr_landxml.zip"
-				+ "!/A_LVR_LAND_A.XML";
+				+ "!/F_LVR_LAND_A.XML";// ! 後面是加zip檔內的指定檔案
 
 
 		Document jsoupDoc = CrawlerPack.start()

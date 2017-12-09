@@ -13,12 +13,14 @@ public class HighwayStaticInfo {
 	public static void main(String[] args) {
 		
 		// 遠端資料路徑
-		String uri = "gz:http://tisvcloud.freeway.gov.tw/cms_value.xml.gz";
-
-		System.out.println(
-				CrawlerPack.start()
-			    	.getFromXml(uri)
-			    
-		);
+		String uri = "gz:http://tisvcloud.freeway.gov.tw/roadlevel_info.xml.gz";
+		//String uri = "gz:http://tisvcloud.freeway.gov.tw/roadlevel_value5.xml.gz";
+//		System.out.println(
+//				CrawlerPack.start()
+//			    	.getFromXml(uri)
+//				CrawlerPack.start().getFromJson(uri);
+//
+//		);
+		System.out.println(	CrawlerPack.start().getFromXml(uri));
 	}
 }

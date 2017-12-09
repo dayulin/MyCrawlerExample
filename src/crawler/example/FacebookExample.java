@@ -60,6 +60,44 @@ public class FacebookExample {
 		// "talking_about_count": 188119
 		// }
 		// }
+
+		// judgead?fields=id,about?fields=id,about
+		// 基本-設定顯示欄位
+		//
+		// judgead?fields=id,name,about,category,likes,link,talking_about_count,website
+		// 粉絲團基本資料
+		//
+		// judgead/insights/metric=page_fans_country&since=2017-01-01&until=2017-01-05
+		// 粉絲人數-國家
+		//
+		// yahootwnews/feed?fields=message,likes.limit(1),created_time&until=1451779200&since=1451606400&limit=100
+		// yahoo with limt
+		//
+		// yahootwnews/feed?fields=message,likes.limit(1).summary(true)
+		// feed with likes summary
+		//
+		// search?q=靠北&type=page&limit=1000&fields=name,id,likes,talking_about_count,fan_count
+		// 2.5->2.6 likes變 fa_count
+		//
+		// 109249609124014_1185877771461187?fields=reactions.type(LOVE).limit(0).summary(total_count).as(reactions_love),reactions.type(WOW).limit(0).summary(total_count).as(reactions_wow),reactions.type(HAHA).limit(0).summary(total_count).as(reactions_haha),reactions.type(SAD).limit(0).summary(total_count).as(reactions_sad),reactions.type(ANGRY).limit(0).summary(total_count).as(reactions_angry)
+		// 取得所有reactions sample
+		//
+		// judgead/posts?fields=id,link,message,created_time,likes.limit(0).summary(total_count),reactions.limit(0).summary(total_count)
+		// 文章(Posts)-統計數量
+		//
+		// crazyck101/feed?fields=id,link,message,created_time,likes.limit(1000)&since=1480849200&until=1480856400
+		//
+		// search?q=礁溪&type=page&locale=zh_tw
+		// 查詢-頁面名稱
+		//
+		// search?q=咖啡&type=place&center=25.033210,121.543632&distance=50
+		// 查詢-地點
+		//
+		// search?type=place&center=25.033718,121.543426&distance=500&locale=zh_tw
+		// 查詢功能-方圓500公尺的地點
+		//
+		// crazyck101/feed?fields=id,link,message,created_time,likes.limit(0).summary(true)&since=1480849200&until=1480856400
+		// 狂新聞42集按讚數
 		Elements elems = CrawlerPack.start().getFromJson(uri).select("data");
 
 		String output = "id,名稱,按讚數,討論人數\n";

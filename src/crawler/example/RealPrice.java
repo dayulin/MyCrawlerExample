@@ -17,6 +17,7 @@ public class RealPrice {
 
 		String uri = "zip:http://plvr.land.moi.gov.tw" + "/Download?type=zip&fileName=lvr_landxml.zip"
 				+ "!/B_LVR_LAND_A.XML";// ! 後面是加zip檔內的指定檔案
+		// ====================================================
 		// 縣市代碼:
 		// C,基隆市
 		// A,臺北市
@@ -40,12 +41,12 @@ public class RealPrice {
 		// X,澎湖縣
 		// W,金門縣
 		// Z,連江縣
-		//
+		// =================================
 		// 交易類別:
 		// A:不動產買賣
 		// B:預售屋買賣
 		// C:不動產租賃
-
+		// ====================================
 		Document jsoupDoc = CrawlerPack.start().getFromXml(uri);
 
 		// 印出整份 XML 資料

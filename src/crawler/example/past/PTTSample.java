@@ -3,6 +3,7 @@ package crawler.example.past;
 import com.github.abola.crawler.CrawlerPack;
 
 import org.apache.commons.logging.impl.SimpleLog;
+import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 public class PTTSample {
@@ -38,5 +39,18 @@ public class PTTSample {
                 // .select(".css .selector ")
 
         );
+
+
+        Document jsoup1 = CrawlerPack.start()
+
+                // 參數設定
+                .addCookie("over18","1")	// 設定cookie
+
+                // 選擇資料格式 (三選一)
+                .getFromHtml(uri);
+
+        // 這兒開始是 Jsoup Document 物件操作
+        jsoup1.select("#main-content > span").remove();
+        jsoup1.select("#main-content > div").remove();
     }
 }

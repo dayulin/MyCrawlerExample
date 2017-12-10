@@ -9,14 +9,13 @@ import org.jsoup.select.Elements;
  * Created by Abola Lee on 2016/7/10.
  */
 public class FBElasticImport {
-
 	static String elasticHost = "dyn.gibar.co";
 	static String elasticPort = "9200";
-	static String elasticIndex = "dayulin"; // table name
+	static String elasticIndex = "dayulin"; 	// table name
 	static String elasticIndexType = "data";
-	static String pageName = "yunba8"; // fb fan name
+	static String pageName = "yunba8"; 			// fb fan name
 	// 2017-09-02
-	static long start = 1512867587; // time stamp
+	static long start = 1512867587; 			// time stamp
 	// 往前抓抓取日期數
 	static int days = 30;
 	// 每日抓取文章上限 (上限1000)
@@ -24,7 +23,6 @@ public class FBElasticImport {
 	static String access_token = "EAACEdEose0cBAOTTY3bkKJ8S8pTBybXXJaeuf0SHpg0780zjoAZBRrBUcZACTaZAFZC3sDfCStZCthjzYHGZBYLZABKo9xjxTlW21voZBsZAsDN5im9685XCAc11mjUEtDCvlaNDloENzWfm9znbUmLC9cf8GuG2k4k8CHqZCqGULVapp4ZAmeAZAywjxovJ1IgXU9wZD";
 
 	public static void main(String[] args) {
-
 		for (long datatime = start; datatime > start - 86400 * days; datatime -= 86400) {
 			String uri = "https://graph.facebook.com/v2.6" + "/" + pageName
 					+ "/posts?fields=message,comments.limit(0).summary(true),likes.limit(0).summary(true),created_time&since="
@@ -38,17 +36,22 @@ public class FBElasticImport {
 				// 遂筆處理
 				for (Element data : elems) {
 
-					String created_time = data.select("created_time").text();
-					String id = data.select("id").text();
-					String message = data.select("message").text();
-					String likes = data.select("likes > summary > total_count").text();
-					String comments = data.select("comments > summary > total_count").text();
+					String created_time = 	data.select("created_time").text();
+					String id = 			data.select("id").text();
+					String message = 		data.select("message").text();
+					String likes = 			data.select("likes > summary > total_count").text();
+					String comments = 		data.select("comments > summary > total_count").text();
 
 					// Elasticsearch data format
 
-					String elasticJson = "{" + "\"created_time\":\"" + created_time + "\"" + ",\"message\":\""
-							+ message.replaceAll("\"", "'") + "\"" + ",\"likes\":" + likes + ",\"id\":\"" + id + "\""
-							+ ",\"pagename\":\"" + pageName + "\"" + ",\"comments\":" + comments +
+					String elasticJson =
+							"{" +
+									"\"created_time\":\"" + created_time + "\"" +
+									",\"message\":\""+ message.replaceAll("\"", "'") + "\"" +
+									",\"likes\":" + likes +
+									",\"id\":\"" + id + "\""+
+									",\"pagename\":\"" + pageName + "\"" +
+									",\"comments\":" + comments +
 
 							"}";
 					// debug 看看資料會如何呈現
@@ -58,9 +61,10 @@ public class FBElasticImport {
 							sendPost("http://" + elasticHost + ":" + elasticPort + "/" + elasticIndex + "/"
 									+ elasticIndexType, elasticJson));
 				}
-			} catch (Exception e) {
-				/* 不良示範 */}
-
+			} catch (Exception e)
+			{
+				/* 不良示範 */
+			}
 		}
 	}
 

@@ -11,11 +11,11 @@ import org.jsoup.select.Elements;
 public class FBElasticImport {
 	static String elasticHost = "dyn.gibar.co";
 	static String elasticPort = "9200";
-	static String elasticIndex = "dayulin"; 	// table name
+	static String elasticIndex = "dayulin"; 	// table name　自行定義
 	static String elasticIndexType = "data";
-	static String pageName = "yunba8"; 			// fb fan name
+	static String pageName = "yunba8"; 			// fb fan name　粉絲團代碼
 	// 2017-09-02
-	static long start = 1512867587; 			// time stamp
+	static long start = 1512867587; 			// time stamp　自行設定毫秒數
 	// 往前抓抓取日期數
 	static int days = 30;
 	// 每日抓取文章上限 (上限1000)
@@ -28,10 +28,9 @@ public class FBElasticImport {
 					+ "/posts?fields=message,comments.limit(0).summary(true),likes.limit(0).summary(true),created_time&since="
 					+ (datatime - 3600 * 24) + "&until=" + datatime + "&limit=" + maxPosts + "&access_token="
 					+ access_token;
-			try {
-
+			try
+			{
 				Elements elems = CrawlerPack.start().getFromJson(uri).select("data:has(created_time)");
-
 				System.out.println(elems.size());
 				// 遂筆處理
 				for (Element data : elems)
@@ -80,11 +79,12 @@ public class FBElasticImport {
 	}
 
 	static String sendPost(String url, String body) {
-		try {
+		try
+		{
 			return Unirest.post(url).header("content-type", "text/plain").header("cache-control", "no-cache").body(body)
 					.asString().getBody();
-
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			return "Error:" + e.getMessage();
 		}
 	}

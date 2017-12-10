@@ -58,6 +58,11 @@ public class FBElasticImport {
 							// curl -XPOST http://localhost:9200/pm25/data -d '{...}'
 							sendPost("http://" + elasticHost + ":" + elasticPort + "/" + elasticIndex + "/"
 									+ elasticIndexType, elasticJson));
+
+					//須移到事先已架設的KIBANA站台去檢視匯入資料
+					//http://kibana.gibar.co/ 此為老師事先所架設的站台..供使用者即刻以圖形化方式檢視資料
+					//先至Setting頁面設定 建立自己的資料庫 ex: dayulin*  以上面所輸入的 elasticIndex 為基準
+					//再行到visualize 活頁設定x,y軸 鎖定一欄位 ..按下綠色執行建...應即可看到圖形化資料
 				}
 			}
 			catch (Exception e)

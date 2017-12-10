@@ -34,16 +34,14 @@ public class FBElasticImport {
 
 				System.out.println(elems.size());
 				// 遂筆處理
-				for (Element data : elems) {
-
+				for (Element data : elems)
+				{
 					String created_time = 	data.select("created_time").text();
 					String id = 			data.select("id").text();
 					String message = 		data.select("message").text();
 					String likes = 			data.select("likes > summary > total_count").text();
 					String comments = 		data.select("comments > summary > total_count").text();
-
 					// Elasticsearch data format
-
 					String elasticJson =
 							"{" +
 									"\"created_time\":\"" + created_time + "\"" +
@@ -61,7 +59,8 @@ public class FBElasticImport {
 							sendPost("http://" + elasticHost + ":" + elasticPort + "/" + elasticIndex + "/"
 									+ elasticIndexType, elasticJson));
 				}
-			} catch (Exception e)
+			}
+			catch (Exception e)
 			{
 				/* 不良示範 */
 			}

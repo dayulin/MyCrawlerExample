@@ -56,11 +56,11 @@ public class FacebookExam {
             reactions = data.select("reactions summary total_count").text();
             //======================================================//
             output += "COTENT_ID："+id  +
-                    ",LOVE:" + love+
-                    ",WOW:" + WOW +
-                    ",HAHA:" + HAHA +
-                    ",SAD:" + SAD +
-                    ",ANGRY:" + ANGRY +
+                    ",LOVE:" + love+                //代表愛心圖案表情符號數
+                    ",WOW:" + WOW +                 //代表wow圖案表情符號數
+                    ",HAHA:" + HAHA +               //代表ㄏㄏ圖案表情符號數
+                    ",SAD:" + SAD +                 //代表傷心圖案表情符號數
+                    ",ANGRY:" + ANGRY +             //代表生氣圖案表情符號數
                     ",reactions:" + reactions+
                     ",message:" + message + "\n";
         }

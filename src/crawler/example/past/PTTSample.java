@@ -18,6 +18,7 @@ public class PTTSample {
         // 遠端資料路徑
         String uri = "https://www.ptt.cc/bbs/marriage/M.1512832927.A.535.html";
         // =============================================取主文======================================================//
+        //如果遇到畫面有詢問問題者...多半就是在Cookie存值改變即可
         Elements jsoup = CrawlerPack.start().addCookie("over18", "1").getFromHtml(uri).select("#main-content");
         System.out.println(jsoup.select("span,div").remove().text().substring(11));
         System.out.println("========================================================================================");

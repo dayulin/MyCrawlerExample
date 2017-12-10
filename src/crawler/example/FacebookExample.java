@@ -44,7 +44,7 @@ public class FacebookExample {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String token = "EAACEdEose0cBAHIuJzdYvMJ0kA912Qmfqnit9xug4XlNP2rkw9E6lel8oxcirPl2mOjDldrQYZCGvFIJ2xVQG6rN6n09n3tY4tkjy4KL9ASTtCbcsz55LjO8Er5yUEPamCjRGNL1xFYsZBRiJQBOdNXZCesHL9maZBLIag2Vn72eqWud1ogA0JMgiZBuGD5zyMCZAZCMTKZCmrZArkVNjEdKdITocIRRMljAZD";
+		String token = "EAACEdEose0cBAGe4DKk1YuFuhmuFjKIKn4yapu4EoFHGxYfixb3W0BWFmALRmcMJMnylcpAs3GmQiPkviYMFWYfwkzoI2QvnjfKzKzzeYrEcLV4bedQhJyEtRM4yk2ZAgtyMEUsPPJH7ZABG9alb2ZAqvpmJLNH3wW4lwbSHeMIN8ZBTiFn5t0bzZCZB7l3RsZD";
 		// String uri = "https://graph.facebook.com/v2.5" + "/search?q=" + sQueryItem
 		// + "&type=page&limit=1000&fields=name,id,likes,talking_about_count"
 		// +

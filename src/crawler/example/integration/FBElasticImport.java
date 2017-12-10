@@ -13,7 +13,7 @@ public class FBElasticImport {
 	static String elasticPort = "9200";
 	static String elasticIndex = "dayulin"; 	// table name　自行定義
 	static String elasticIndexType = "data";
-	static String pageName = "mycomic.cc"; 			// fb fan name　粉絲團代碼
+	static String pageName = "LOOKER.pets"; 			// fb fan name　粉絲團代碼
 	// 2017-09-02
 	static long start = 1512867587; 			// time stamp　自行設定毫秒數
 	// 往前抓抓取日期數

@@ -25,6 +25,8 @@ public class PTTSample {
 
                         // 選擇資料格式 (三選一)
                         .getFromHtml(uri)
+                        //.select(".hl.push-tag:contains(推)+span")
+                .select(".hl.push-tag:contains(推)")
                 //.getFromHtml(uri)
                 //.getFromXml(uri)
 

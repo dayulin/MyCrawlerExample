@@ -16,7 +16,7 @@ public class FacebookExam {
 
     public static void main(String[] args) {
         // 遠端資料路徑
-        String token = "EAACEdEose0cBAN7Mkh9dbrKCtcRMj8NFDl1h4zyMZBqYZAX3eX9QO4HIL7vJZBQ9MhNlgNP9ZAHOh699fqzCCghrZAVCxRSBbk3aGoZAzZByiFGRQZCZBSsZABmTLnZAa6wohJR5ejjyIIBgjWuOnrrqZAXfMwop0rCf1m3ZAU9Hs45lyJhIBlWE8CAwtyHWrUS0gW7kZD";
+        String token = "EAACEdEose0cBAGe4DKk1YuFuhmuFjKIKn4yapu4EoFHGxYfixb3W0BWFmALRmcMJMnylcpAs3GmQiPkviYMFWYfwkzoI2QvnjfKzKzzeYrEcLV4bedQhJyEtRM4yk2ZAgtyMEUsPPJH7ZABG9alb2ZAqvpmJLNH3wW4lwbSHeMIN8ZBTiFn5t0bzZCZB7l3RsZD";
         String uri = "https://graph.facebook.com/v2.6"
                 + "/judgead/posts?fields=id,link,message,created_time,likes.limit(0).summary(total_count),reactions.limit(0).summary(total_count)"
                 + "&access_token=" + token;

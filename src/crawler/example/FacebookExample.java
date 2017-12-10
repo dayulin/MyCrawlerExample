@@ -37,16 +37,21 @@ public class FacebookExample {
 		// "/search?q=java&type=page&limit=1000&fields=name,id,likes,talking_about_count"
 		// +
 		// "&access_token=EAACEdEose0cBAHnatFDWQUxXqxBTfkR0scfIIHRKiJpnra0x0H7thi7CtXbxQvoFF7F9iEVi02JcyOt8Nwld3BoZCBjddZBl3bCtQSxzgvtoTo9RORVOF6CkhCOKyY6EhANAEzPot6ALOZBiLAwai8dMhPrsHojAUOW8ZBZBoWYFhbZCt5q8ftgCydHrKkvXkZD";
-		String ss = "";
+		String sQueryItem = "";
 		try {
-			ss = URLEncoder.encode("資策會", "UTF-8");
+			sQueryItem = URLEncoder.encode("吃到飽", "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String uri = "https://graph.facebook.com/v2.5" + "/search?q=" + ss
-				+ "&type=page&limit=1000&fields=name,id,likes,talking_about_count"
-				+ "&access_token=EAACEdEose0cBAHnatFDWQUxXqxBTfkR0scfIIHRKiJpnra0x0H7thi7CtXbxQvoFF7F9iEVi02JcyOt8Nwld3BoZCBjddZBl3bCtQSxzgvtoTo9RORVOF6CkhCOKyY6EhANAEzPot6ALOZBiLAwai8dMhPrsHojAUOW8ZBZBoWYFhbZCt5q8ftgCydHrKkvXkZD";
+		String token = "EAACEdEose0cBAHIuJzdYvMJ0kA912Qmfqnit9xug4XlNP2rkw9E6lel8oxcirPl2mOjDldrQYZCGvFIJ2xVQG6rN6n09n3tY4tkjy4KL9ASTtCbcsz55LjO8Er5yUEPamCjRGNL1xFYsZBRiJQBOdNXZCesHL9maZBLIag2Vn72eqWud1ogA0JMgiZBuGD5zyMCZAZCMTKZCmrZArkVNjEdKdITocIRRMljAZD";
+		// String uri = "https://graph.facebook.com/v2.5" + "/search?q=" + sQueryItem
+		// + "&type=page&limit=1000&fields=name,id,likes,talking_about_count"
+		// +
+		// "&access_token=EAACEdEose0cBAHnatFDWQUxXqxBTfkR0scfIIHRKiJpnra0x0H7thi7CtXbxQvoFF7F9iEVi02JcyOt8Nwld3BoZCBjddZBl3bCtQSxzgvtoTo9RORVOF6CkhCOKyY6EhANAEzPot6ALOZBiLAwai8dMhPrsHojAUOW8ZBZBoWYFhbZCt5q8ftgCydHrKkvXkZD";
+		// String uri = "https://graph.facebook.com/v2.5" + "/search?q=" + sQueryItem
+		// + "&type=page&limit=1000&fields=name,id,likes,talking_about_count"
+		// + "&access_token="+token;
 
 		// Jsoup select 後回傳的是 Elements 物件
 		// [data sample]
@@ -57,7 +62,7 @@ public class FacebookExample {
 		// "name": "靠北工程師",
 		// "id": "1632027893700148",
 		// "likes": 174587,
-		// "talking_about_count": 188119
+		// "talking_about_count": 188119 //真正存活帳號
 		// }
 		// }
 
@@ -67,6 +72,10 @@ public class FacebookExample {
 		// judgead?fields=id,name,about,category,likes,link,talking_about_count,website
 		// 粉絲團基本資料
 		//
+		// String uri = "https://graph.facebook.com/v2.6"
+		// +
+		// "/judgead?fields=id,name,about,category,likes,link,talking_about_count,website&access_token="
+		// + token;
 		// judgead/insights/metric=page_fans_country&since=2017-01-01&until=2017-01-05
 		// 粉絲人數-國家
 		//
@@ -89,7 +98,9 @@ public class FacebookExample {
 		//
 		// search?q=礁溪&type=page&locale=zh_tw
 		// 查詢-頁面名稱
-		//
+		String uri = "https://graph.facebook.com/v2.5" + "/search?q=" + sQueryItem
+				+ "&type=place&center=25.0280078,121.5412632&distance=5000&access_token=" + token;
+		// search?q=吃到飽&type=place&center=25.0280078,121.5412632&distance=5000
 		// search?q=咖啡&type=place&center=25.033210,121.543632&distance=50
 		// 查詢-地點
 		//

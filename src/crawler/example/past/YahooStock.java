@@ -38,21 +38,22 @@ public class YahooStock {
 	static String stockNumber;
 	
 	// 每次取得最後50筆交易的內容
-	static String uri_format = "https://tw.stock.yahoo.com/q/ts?s=%s&t=50";
-	
+	static String uri_format = "https://tw.finance.yahoo.com/q/ts?s=%s&t=50";
+
 	public static void main(String[] args) {
-		
+		stockNumber="2330";
 		// 要有輸入參數															
-		if ( args.length >= 1){
-			stockNumber = args[0];
-		}else{
-			// 沒輸入參數
-			System.out.println("未輸入股號");
-			
-			// 技巧：NullPointerException 才能正確中止 Jenkins 的 job
-			String forkException=null; 
-			forkException.toString();
-		}
+//		if ( args.length >= 1){
+//			stockNumber = args[0];
+//		}
+//		else{
+//			// 沒輸入參數
+//			System.out.println("未輸入股號");
+//
+//			// 技巧：NullPointerException 才能正確中止 Jenkins 的 job
+//			String forkException=null;
+//			forkException.toString();
+//		}
 		
 		crawlerStockByNumber(stockNumber);
 	}
@@ -80,9 +81,9 @@ public class YahooStock {
 
 		// 分解明細資料表格
 		List<DBObject> parsedTransDetail = parseTransDetail(transDetail);
-		
+		System.out.println(parsedTransDetail);
 		// 儲存明細
-		saveTransDetail(parsedTransDetail);
+		//saveTransDetail(parsedTransDetail);
 	}
 	
 	/**
